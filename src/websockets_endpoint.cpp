@@ -396,6 +396,8 @@ namespace internals {
         }
 
         this->_client->send(reinterpret_cast<const uint8_t*>(message_data.c_str()), message_data.size());
+        message_data.clear();
+        message_data.shrink_to_fit();
         return true; // TODO dont assume success
     }
 
